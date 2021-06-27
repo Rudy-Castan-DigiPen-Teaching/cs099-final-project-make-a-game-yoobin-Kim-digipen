@@ -22,19 +22,23 @@ Of course, In other ways if you enter a dungeon, you'll have to sneak in and get
 
 
 
-<img src="./concept_1.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
+<img src="./sktech_1.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
 A small skeleton is just one attack motion and can be parrying.
 A large skeleton wields a hammer and hits the ground, sending shock waves.
 
 
-<img src="./Concept_2.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
+<img src="./sktech_2.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
 Meiji can only use magic and Archer can only shoot arrows.
 
 
-<img src="./Concept_3.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
+<img src="./sktech_3.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
 Rich King has a three-stroke attack motion and uses magic. When the player comes near while using magic, Rich King cancels and attacks.
 
+<img src="./sktech_4.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
 
-There is no sketch except for the character. I just thought about it.
-I didn't have to do the rest of the sketch, so I just did it.
+<img src="./ima.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
+<img src="./ima_2.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
+
+
+
 ***
