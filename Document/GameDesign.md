@@ -27,7 +27,7 @@ A small skeleton is just one attack motion and can be parrying.
 A large skeleton wields a hammer and hits the ground, sending shock waves.
 
 
-<img src="./Concept_1.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
+<img src="./Concept_2.jpg" width="50%" height="50%" title="concept" alt="me1"></img><br/>
 Meiji can only use magic and Archer can only shoot arrows.
 
 
