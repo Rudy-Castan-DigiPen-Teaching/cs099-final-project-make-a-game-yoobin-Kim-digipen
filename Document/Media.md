@@ -1,6 +1,6 @@
 ## Images
 ***
-All images is made by Me Yoobin.Kim without bg_forest.png
+All images is made by Me Yoobin.Kim without bg_forest.png  and tool is pixel studio.
 bg_forest.png is made by Song Seung ju. he is my colleague.
 ***
 ## Audio
