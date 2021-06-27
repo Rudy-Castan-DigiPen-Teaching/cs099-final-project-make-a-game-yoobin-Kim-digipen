@@ -76,13 +76,10 @@ let key;
 
 
 
-//현재가 몇번째 인지 확인하기.
 let stateCheck;
 let screenCheck = 0;
-//스폰 체크 하는것.
 let spawnCheck = 0;
 
-//체크 퍼즈.
 let checkPause = false;
 let cameraState = 2400;
 
@@ -101,7 +98,6 @@ let doorMusic;
 function preload()
 {
 
-    //뮤직
     backgroundMusic.push(loadSound("./Assets/Music/The golden Forest.mp3"));
     backgroundMusic.push(loadSound("./Assets/Music/LEGACY - Encounter of Misdeeds MP3.mp3"));
     backgroundMusic.push(loadSound("./Assets/Music/LEGACY - The World At Your Door MP3.mp3"));
@@ -404,16 +400,13 @@ function preload()
 
 
 
-    //수직 플랫폼
     verPlatForm = loadImage("./Assets/PlatForm/Vetical_Platfrom.png");
-    //아이템
+   
     itemImage.push(loadImage("./Assets/Item/Key.png"));
     itemImage.push(loadImage("./Assets/Item/EndingItem.png"));
 
-    //이펙트 이미지
     effectImage = loadImage("./Assets/Effect/Effect.png");
 
-    //도어
     doorImage.push(loadImage("./Assets/PlatForm/door_1.png"));
     doorImage.push(loadImage("./Assets/PlatForm/door_2.png"));
     doorImage.push(loadImage("./Assets/PlatForm/door_3.png"));
@@ -430,28 +423,28 @@ function preload()
     skelRAttack.push(loadImage("./Assets/Skleton/rAttack/attackR_1.png"));
     skelRAttack.push(loadImage("./Assets/Skleton/rAttack/attackR_2.png"));
     skelRAttack.push(loadImage("./Assets/Skleton/rAttack/attackR_3.png"));
-    //여기부턴 스턴.
+    
     skelRAttack.push(loadImage("./Assets/Skleton/rStun/stun_1.png"));
     skelRAttack.push(loadImage("./Assets/Skleton/rStun/stun_2.png"));
     skelRAttack.push(loadImage("./Assets/Skleton/rStun/stun_3.png"));
 
-    //왼쪽공격
+  
     skelLAttack.push(loadImage("./Assets/Skleton/lAttack/lAttack_1.png"));
     skelLAttack.push(loadImage("./Assets/Skleton/lAttack/lAttack_2.png"));
     skelLAttack.push(loadImage("./Assets/Skleton/lAttack/lAttack_3.png"));
 
-    //스턴
+   
     skelLAttack.push(loadImage("./Assets/Skleton/lStun/lStun_1.png"));
     skelLAttack.push(loadImage("./Assets/Skleton/lStun/lStun_2.png"));
     skelLAttack.push(loadImage("./Assets/Skleton/lStun/lStun_3.png"));
 
-    //무브 오른쪽
+    
     skelMove.push(loadImage("./Assets/Skleton/walkRight/rightWalk_1.png"));
     skelMove.push(loadImage("./Assets/Skleton/walkRight/rightWalk_2.png"));
     skelMove.push(loadImage("./Assets/Skleton/walkRight/rightWalk_3.png"));
     skelMove.push(loadImage("./Assets/Skleton/walkRight/rightWalk_4.png"));
     
-    //무브 왼쪽
+  
     skelMove.push(loadImage("./Assets/Skleton/walkLeft/walkLeft_1.png"));
     skelMove.push(loadImage("./Assets/Skleton/walkLeft/walkLeft_2.png"));
     skelMove.push(loadImage("./Assets/Skleton/walkLeft/walkLeft_3.png"));
@@ -461,7 +454,7 @@ function preload()
     skelMove.push(loadImage("./Assets/Skleton/skelDead_2.png"));
     skelMove.push(loadImage("./Assets/Skleton/skelDead_3.png"));
 
-    //피격모션.
+   
     skelMove.push(loadImage("./Assets/Skleton/attackedImage/attackedLeft.png"));
     skelMove.push(loadImage("./Assets/Skleton/attackedImage/attackedRight.png"));
 
@@ -716,7 +709,6 @@ function stateManager()
     if(player.pos.x > cameraState && keyIs)
     {
         stateCheck++;
-        console.log("여기들어와봐");
         player.pos.x = 100;
         spawnCheck = 0;
         player.startPlay = 0;
@@ -1028,7 +1020,6 @@ function playerCheck()
         player.attackCheck = 0;
         player.shieldCount = 3;
 
-        //이미지 오류시 여기로오기
         player.attackedVel.x = 0;
         
         player.rollVec.x = 0;
@@ -1096,7 +1087,6 @@ function mousePressed()
         player.isSkill = 0;   
         player.attackCheck = 0;
 
-        //이미지 오류시 여기로오기
         player.attackedVel.x = 0;
         player.attackedCheck = 0;
         player.rollVec.x = 0;

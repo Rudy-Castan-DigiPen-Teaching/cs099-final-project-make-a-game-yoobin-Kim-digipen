@@ -36,11 +36,9 @@ class Boss
         this.animState = 0;
         this.animDefaultDelta = 0;
 
-        //default 상태를 체크
         this.defaultCheck = 0;
 
 
-        //행동 체크.
         this.moveDelta = 0;
         this.moveState = 0;
 
@@ -48,14 +46,13 @@ class Boss
         this.left = _left;
         this.up = _up;
         this.down = _down;
-        //오른쪽 밑 왼쪽 밑.
         this.downRight = new Vec2(this.pos.x+this.right,this.pos.y+this.up);
         this.downLeft = new Vec2(this.pos.x+_left,this.pos.y+this.up);
-        //오른위 왼쪽 위
+     
         this.upRight = new Vec2(this.pos.x+this.right,this.pos.y+this.down);
         this.upLeft = new Vec2(this.pos.x+this.left,this.pos.y+this.down);
 
-        //레이 선.
+   
         this.rayDown = _rayDown;
         this.ray = new Vec2((this.pos.x+this.right+20,this.pos.y+this.rayDown));
 
@@ -66,61 +63,41 @@ class Boss
 
         this.isPlayer = 0;
         
-
-        //isAttack 공격 상태 인가?
         this.isAttack = 0;
-        //오른쪽 공격 관련 변수.
         this.rightAttackDelta = 0;
-        //페링이 가능한 시간대.
         this.isCanParry = 0;
-        //스턴체크 한번.
         this.stunCheck = 0;
 
-        //공격 판정 부분
         this.attackLeft = new Vec2(0,0);
-        //공격부분 방향체크
         this.checkA = 0;
 
-        //스턴 델타타임
         this.stunDeltaTime = 0;
 
-        //왼쪽공격 델타 타임.
         this.leftAttackDelta = 0;
 
 
 
-        //behavior 체크
         this.behaviorCheck = 0;
 
-        //왼쪽으로 걷기.
         this.leftWalkDelta = 0;
 
 
 
-        //오른쪽으로 걷기.
         this.rightWalkDelta = 0;
-        //behavior 체크
         this.isBehavior = 0;
         
 
-
-        //이펙트 델타타임.
         this.effectDelta = 0;
 
 
 
 
 
-
-
-        //공격 어택타임.
         this.attackPlayerDelta = 0;
-        // 매직 체크.
         this.magicCheck = 0;
         this.magicDeltaTime = 0;
         this.magicCastDeltaTime = 0;
 
-        //포스체크
         this.playerPosCheck = 0;
         this.playerPos_x = 0;
         this.playerPos_y = 0;
@@ -131,7 +108,6 @@ class Boss
         this.whereMagic = 0;
         this.rightAttackRange = 0;
 
-        //왼쪽으로 가는거
 
 
         //Wide
@@ -204,7 +180,6 @@ class Boss
         {
             
             
-            // animState == 0 은 defualt
             if(this.animState == 0)
             {
                
@@ -215,7 +190,7 @@ class Boss
                     image(this.moveImage[0],this.pos.x-20,this.pos.y-40,300,300);
                 }
                 
-            //왼쪽 움직임.
+          
             }else if(this.animState == 1)
             {
                 this.rightWalkDelta += deltaTime/1000;
@@ -236,7 +211,7 @@ class Boss
                 {
                     image(this.moveImage[0],this.pos.x-20,this.pos.y-40,300,300);
                 }
-            //오른쪽 움직임
+       
             }else if(this.animState == 2)
             {
 
@@ -260,7 +235,7 @@ class Boss
                     image(this.moveImage[4],this.pos.x,this.pos.y-40,300,300);
                 }
 
-            //오른쪽 공격.
+            
             }else if(this.animState == 3)
             {
 
@@ -354,7 +329,7 @@ class Boss
                     
                     
                 }
-            //왼쪽 공격.
+           
             }else if(this.animState == 4)
             {
                 
@@ -725,11 +700,6 @@ class Boss
 
 
 
- /*
- ```javascript
- ```
-*/
-
 
 
 
@@ -963,13 +933,11 @@ class Boss
                     {
 
                         
-                        
-                        //오른쪽 네모
                         if(player.isParrying == 1 && this.isCanParry == 1 && player.checkA == 1)
                         {
                             if(this.stunCheck == 0)
                             {
-                                    console.log("여기");
+                                    
                                     this.animState = 6;
                                     this.stunCheck = 1;
                                     this.leftAttackDelta = 0;
@@ -1053,7 +1021,7 @@ class Boss
                         {
                             if(this.stunCheck == 0)
                             {
-                                    console.log("여기");
+                                    
                                     this.animState = 7;
                                     this.stunCheck = 1;
                                     this.leftAttackDelta = 0;
@@ -1095,8 +1063,7 @@ class Boss
                             player.attackedCheck = 1;
                             
                             
-                            // player.gravityVel.addTo(new Vec2(2,-2));
-                            // player.pos.x += 100;
+                            
                             player.attackedVel.x = -300;
                             
                             
@@ -1123,8 +1090,6 @@ class Boss
                             player.attackedCheck = 1;
                             
                             
-                            // player.gravityVel.addTo(new Vec2(2,-2));
-                            // player.pos.x += 100;
                             player.attackedVel.x = -300;
                             
                             
@@ -1134,7 +1099,7 @@ class Boss
                 
                 
                 }
-                //매직부분
+              
             }else if(this.isMagic == 1 && player.attackedCheck == 0)
             {
                 
@@ -1147,8 +1112,6 @@ class Boss
                         {
     
                             
-                            
-                            //오른쪽 네모
                             
                                 if(player.attackedCheck == 0)
                                 {

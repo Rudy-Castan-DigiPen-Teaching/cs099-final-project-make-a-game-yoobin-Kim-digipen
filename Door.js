@@ -18,7 +18,6 @@ class Door{
         this.animDelta = 0;
         
 
-        //열리는지 확인
         this.isOpen = 0;
         this.musicCheck = 0;
 
@@ -35,7 +34,6 @@ class Door{
 
 
 
-                console.log("데였습니다");
                 player.pos.x = this.x - 70;
                 
 

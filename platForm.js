@@ -96,7 +96,6 @@ class PlatForm
 
 
                 
-                // console.log("데였습니다");
                 player.moveVel.x = 0;
                 player.pos.x = this.x - 70;
                 this.platform = this.y;
@@ -137,7 +136,6 @@ class PlatForm
                 monster.gravityVel.y = 0;
                 if(monster.downRight.y >= this.y)
                 {
-                    console.log("여기 들어와지는가?13213");
                     monster.pos.y = this.y-50;
                 }
                 

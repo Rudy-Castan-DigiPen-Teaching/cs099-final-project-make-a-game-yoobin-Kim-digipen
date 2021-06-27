@@ -38,11 +38,11 @@ class Archer
         this.animState = 0;
         this.animDefaultDelta = 0;
 
-        //default 상태를 체크
+      
         this.defaultCheck = 0;
 
 
-        //행동 체크.
+   
         this.moveDelta = 0;
         this.moveState = 0;
 
@@ -50,14 +50,14 @@ class Archer
         this.left = _left;
         this.up = _up;
         this.down = _down;
-        //오른쪽 밑 왼쪽 밑.
+  
         this.downRight = new Vec2(this.pos.x+_right,this.pos.y+this.up);
         this.downLeft = new Vec2(this.pos.x+_left,this.pos.y+this.up);
-        //오른위 왼쪽 위
+    
         this.upRight = new Vec2(this.pos.x+_right,this.pos.y+this.down);
         this.upLeft = new Vec2(this.pos.x+_left,this.pos.y+this.down);
 
-        //레이 선.
+
         this.rayDown = _rayDown;
         this.ray = new Vec2((this.pos.x+this.right+20,this.pos.y+this.rayDown));
 
@@ -69,49 +69,49 @@ class Archer
         this.isPlayer = 0;
         
 
-        //isAttack 공격 상태 인가?
+
         this.isAttack = 0;
-        //오른쪽 공격 관련 변수.
+
         this.rightAttackDelta = 0;
-        //페링이 됬는가?
+
         this.isParried = 0;
-        //페링이 가능한 시간대.
+
         this.isCanParry = 0;
-        //스턴체크 한번.
+
         this.stunCheck = 0;
 
-        //공격 판정 부분
+       
         this.attackLeft = new Vec2(0,0);
-        //공격부분 방향체크
+    
         this.checkA = 0;
 
-        //스턴 델타타임
+
         this.stunDeltaTime = 0;
 
-        //왼쪽공격 델타 타임.
+
         this.leftAttackDelta = 0;
 
 
 
-        //behavior 체크
+   
         this.behaviorCheck = 0;
 
-        //왼쪽으로 걷기.
+
         this.leftWalkDelta = 0;
 
 
 
-        //오른쪽으로 걷기.
+
         this.rightWalkDelta = 0;
-        //behavior 체크
+
         this.isBehavior = 0;
         
 
 
-        //이펙트 델타타임.
+
         this.effectDelta = 0;
 
-        //피격모션 
+      
         this.attackedRightDelta = 0;
         this.attackedLeftDelta = 0;
 
@@ -120,13 +120,13 @@ class Archer
 
 
 
-        //공격 어택타임.
+
         this.attackPlayerDelta = 0;
-        // 매직 체크.
+
         this.magicCheck = 0;
         this.magicDeltaTime = 0;
 
-        //포스체크
+
         this.playerPosCheck = 0;
         this.playerPos_x = 0;
         this.playerPos_y = 0;
@@ -162,7 +162,7 @@ class Archer
         
         push();
         imageMode(CENTER);
-        //페링 타이밍 재주는 Rect 위에 바.
+
         // if(this.rightAttackDelta > 1.0 && this.rightAttackDelta < 1.3)
         // {
         //     fill('red');
@@ -190,7 +190,7 @@ class Archer
         {
             
             
-            // animState == 0 은 defualt
+
             if(this.animState == 0 )
             {
                 // this.animDefaultDelta += deltaTime/1000;
@@ -210,7 +210,7 @@ class Archer
                 //     }
                 // }
                 image(this.moveImage[0],this.pos.x,this.pos.y,200,200);
-            //왼쪽 움직임.
+    
             }else if(this.animState == 1)
             {
                 console.log("여기들어왔는가?");
@@ -234,7 +234,7 @@ class Archer
                     image(this.moveImage[0],this.pos.x,this.pos.y,200,200);
                 }
                 
-            //오른쪽 움직임
+   
             }else if(this.animState == 2)
             {
                 this.rightWalkDelta += deltaTime/1000;
@@ -257,7 +257,7 @@ class Archer
                     image(this.moveImage[5],this.pos.x,this.pos.y,200,200);
                 }
                 
-            //오른쪽 공격.
+          
             }else if(this.animState == 3)
             {
 
@@ -297,7 +297,7 @@ class Archer
                     this.musicCheck = 0;
                     if(this.magicCheck == 1)
                     {
-                        // console.log("여기 들어와지는가?")
+                      
                         this.playerPosCheck = 0;
                     }
                     
@@ -345,10 +345,10 @@ class Archer
                         this.musicCheck = 1;
                     }
                 }
-            //왼쪽 공격.
+    
             }else if(this.animState == 4)
             {
-                // console.log("여기들어왔는가?");
+                
                 this.leftAttackDelta += deltaTime/1000;
                 if(this.leftAttackDelta > 2.0)
                 {
@@ -413,10 +413,9 @@ class Archer
                         this.musicCheck = 1;
                     }
                 }
-            //오른쪽으로 걷ㄷ기
             }
             
-            //왼쪽 피격 모션.    
+
             else if(this.animState == 7)
             {
                 this.attackedLeftDelta += deltaTime/1000;
@@ -440,7 +439,7 @@ class Archer
                     this.vel.x = 0;
                 }
 
-            //오른쪽 피격 모션.
+  
             }else if(this.animState == 8)
             {
                 this.attackedRightDelta += deltaTime/1000;
@@ -461,7 +460,7 @@ class Archer
                     this.stunCheck = 0;
 
                 }else{
-                    // console.log("여기인가?2");
+         
                     image(this.moveImage[11],this.pos.x,this.pos.y,200,200);
                         this.behaviorCheck = 0;
                         this.vel.x = 0;
@@ -625,7 +624,6 @@ class Archer
                 
                     if(dist(player.pos.x,player.pos.y,this.pos.x,this.pos.y) < 1000 && (this.pos.y > player.pos.y-50 &&this.pos.y<player.pos.y+100))
                     {
-                        // console.log("여기인가");
                         this.behaviorCheck = 1;
                         this.animState = 4;
                         this.acc.x = 0;
@@ -641,7 +639,7 @@ class Archer
                 if(this.sige == 0)
                 {
                 this.animState = 2;
-                // this.vel.x = (player.pos.x-this.pos.x)
+              
                 this.vel.x = 350 + random(-50,50);
                 
                 this.checkA = 0;
@@ -649,7 +647,6 @@ class Archer
                 
                     if(dist(player.pos.x,player.pos.y,this.pos.x,this.pos.y) < 1000 && (this.pos.y > player.pos.y-50 &&this.pos.y<player.pos.y+100))
                     {
-                        // console.log("여기인가");
                         this.behaviorCheck = 1;
                         this.animState = 3;
                         this.acc.x = 0;
@@ -830,9 +827,7 @@ class Archer
                 if(this.checkRange(this.playerPos_x-20,this.playerPos_x-20+50,player.upLeft.x,player.upRight.x) && this.checkRange(this.playerPos_y-5,this.playerPos_y+5,player.upLeft.y,player.downRight.y))
                     {
 
-                        
-                        // console.log("들어왔는가아");
-                        //오른쪽 네모
+            
                         if(this.playerPos_x < player.pos.x )
                         {
                             if(player.attackedCheck == 0)
@@ -845,9 +840,7 @@ class Archer
 
                             player.attackedCheck = 1;
                             
-                            
-                            // player.gravityVel.addTo(new Vec2(2,-2));
-                            // player.pos.x += 100;
+                           
                             player.attackedVel.x = 300;
                             
                             
@@ -879,8 +872,7 @@ class Archer
                     {
 
                         
-                        
-                        //오른쪽 네모
+                      
                      
                             if(player.attackedCheck == 0)
                             {
@@ -951,8 +943,6 @@ class Archer
                             player.attackedCheck = 1;
                             
                             
-                            // player.gravityVel.addTo(new Vec2(2,-2));
-                            // player.pos.x += 100;
                             player.attackedVel.x = -300;
                         }
                             
@@ -982,7 +972,7 @@ class Archer
                                 this.isAttack = 0;
                             }
                             this.shieldCheck = 1;
-                            // console.log("여기인가?");
+              
                         
                         }else{
                             if(player.attackedCheck == 0)
@@ -995,9 +985,7 @@ class Archer
 
                             player.attackedCheck = 1;
                             
-                            
-                            // player.gravityVel.addTo(new Vec2(2,-2));
-                            // player.pos.x += 100;
+                  
                             player.attackedVel.x = 300;
                         }
                     }else{

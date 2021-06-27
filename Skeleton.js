@@ -37,11 +37,9 @@ class Skeleton
         this.animState = 0;
         this.animDefaultDelta = 0;
 
-        //default 상태를 체크
         this.defaultCheck = 0;
 
 
-        //행동 체크.
         this.moveDelta = 0;
         this.moveState = 0;
 
@@ -49,14 +47,12 @@ class Skeleton
         this.left = _left;
         this.up = _up;
         this.down = _down;
-        //오른쪽 밑 왼쪽 밑.
         this.downRight = new Vec2(this.pos.x+_right,this.pos.y+this.up);
         this.downLeft = new Vec2(this.pos.x+_left,this.pos.y+this.up);
-        //오른위 왼쪽 위
+   
         this.upRight = new Vec2(this.pos.x+_right,this.pos.y+this.down);
         this.upLeft = new Vec2(this.pos.x+_left,this.pos.y+this.down);
 
-        //레이 선.
         this.rayDown = _rayDown;
         this.ray = new Vec2((this.pos.x+this.right+20,this.pos.y+this.rayDown));
 
@@ -68,47 +64,32 @@ class Skeleton
         this.isPlayer = 0;
         
 
-        //isAttack 공격 상태 인가?
         this.isAttack = 0;
-        //오른쪽 공격 관련 변수.
         this.rightAttackDelta = 0;
-        //페링이 가능한 시간대.
         this.isCanParry = 0;
-        //스턴체크 한번.
         this.stunCheck = 0;
 
-        //공격 판정 부분
         this.attackLeft = new Vec2(0,0);
-        //공격부분 방향체크
         this.checkA = 0;
 
-        //스턴 델타타임
         this.stunDeltaTime = 0;
 
-        //왼쪽공격 델타 타임.
         this.leftAttackDelta = 0;
 
 
 
-        //behavior 체크
         this.behaviorCheck = 0;
 
-        //왼쪽으로 걷기.
         this.leftWalkDelta = 0;
 
 
 
-        //오른쪽으로 걷기.
         this.rightWalkDelta = 0;
-        //behavior 체크
         this.isBehavior = 0;
         
 
-
-        //이펙트 델타타임.
         this.effectDelta = 0;
 
-        //피격모션 
         this.attackedRightDelta = 0;
         this.attackedLeftDelta = 0;
 
@@ -116,8 +97,6 @@ class Skeleton
 
 
 
-
-        //공격 어택타임.
         this.attackPlayerDelta = 0;
 
 
@@ -138,7 +117,6 @@ class Skeleton
         // quad(this.upLeft.x,this.upLeft.y,this.upRight.x,this.upRight.y,this.downRight.x,this.downRight.y,this.downLeft.x,this.downRight.y);
         push();
         imageMode(CENTER);
-        //페링 타이밍 재주는 거.
         if(this.rightAttackDelta > 1.0 && this.rightAttackDelta < 1.3)
         {
             fill('red');
@@ -164,7 +142,6 @@ class Skeleton
         if(this.type == 1 && this.isDead == 0)
         {
             
-            // animState == 0 은 defualt
             if(this.animState == 0)
             {
                 this.animDefaultDelta += deltaTime/1000;
@@ -183,7 +160,6 @@ class Skeleton
                         this.defaultCheck = 0;
                     }
                 }
-            //왼쪽 공격.
             }else if(this.animState == 1)
             {
                 this.leftAttackDelta += deltaTime/1000;
@@ -191,7 +167,6 @@ class Skeleton
                 
                 if(this.leftAttackDelta > 1.6)
                 {
-                    console.log("add2");
                     this.isCanParry = 0;
                     this.isAttack = 0;
                     
@@ -219,7 +194,6 @@ class Skeleton
                     image(this.leftAttack[0],this.pos.x,this.pos.y-10,300,300);
                     this.isAttack = 0;
                 }
-            //오른쪽 공격
             }else if(this.animState == 2)
             {
 
@@ -279,7 +253,6 @@ class Skeleton
 
             }else if(this.animState == 4)
             {
-                console.log("Add");
                 this.stunDeltaTime += deltaTime/1000;
                 if(this.stunDeltaTime > 1.5)
                 {
@@ -301,7 +274,6 @@ class Skeleton
                     image(this.rightAttack[3],this.pos.x,this.pos.y-10,300,300);
                 }
 
-            //오른쪽으로 걷ㄷ기
             }else if(this.animState == 5)
             {
                 this.rightWalkDelta += deltaTime/1000;
@@ -323,7 +295,6 @@ class Skeleton
                 {
                     image(this.moveImage[0],this.pos.x,this.pos.y-10,300,300);
                 }
-            //왼쪽으로 걷기.
             }else if(this.animState == 6)
             {
                 this.leftWalkDelta += deltaTime/1000;
@@ -344,8 +315,7 @@ class Skeleton
                 }else
                 {
                     image(this.moveImage[4],this.pos.x,this.pos.y-10,300,300);
-                }
-            //왼쪽 피격 모션.    
+                } 
             }else if(this.animState == 7)
             {
                 this.attackedLeftDelta += deltaTime/1000;
@@ -371,7 +341,6 @@ class Skeleton
                     this.vel.x = 0;
                 }
 
-            //오른쪽 피격 모션.
             }else if(this.animState == 8)
             {
                 this.attackedRightDelta += deltaTime/1000;
@@ -399,13 +368,6 @@ class Skeleton
                 }
             }
         }
-
-        //this.behaviorCheck = 1;
-        // this.animState = 1;
-        // this.acc.x = 0;
-        // this.checkA = 1;
-        // this.leftWalkDelta = 0;
-        // this.rightWalkDelta = 0;
 
 
 
@@ -707,7 +669,6 @@ class Skeleton
 
                         
                         
-                        //오른쪽 네모
                         if(this.checkA == 0 )
                         {
                             if(player.attackedCheck == 0)
@@ -762,8 +723,6 @@ class Skeleton
                 if(this.checkRange(this.attackLeft.x,this.attackLeft.x+60,player.upLeft.x,player.upRight.x) && this.checkRange(this.attackLeft.y,this.attackLeft.y+50,player.upLeft.y,player.downRight.y))
                     {
 
-                        
-                        //오른쪽 네모
                         if(this.checkA == 0 && player.checkA == 1)
                         {
                             
@@ -774,7 +733,6 @@ class Skeleton
                                 player.shieldCount -= 1;
                                 this.sfx[0].setVolume(0.3);
                                 this.sfx[0].play();
-                                console.log("여기인가?");
                             }
                             this.playerShieldCheck = 1;
                             
@@ -789,7 +747,6 @@ class Skeleton
                                 this.sfx[0].setVolume(0.3);
                                 this.sfx[0].play();
                                 player.shieldCount -= 1;
-                                console.log("여기인가?");
                             }
                             this.playerShieldCheck = 1;
                             
@@ -806,7 +763,6 @@ class Skeleton
                                 console.log(player.attackedCheck);
                                 this.sfx[1].setVolume(0.5);
                                 
-                                    console.log("addd");
                                     this.sfx[1].play();
                                 
                                 player.life -=1;

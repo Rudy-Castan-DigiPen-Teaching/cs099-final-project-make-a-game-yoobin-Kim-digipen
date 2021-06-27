@@ -282,8 +282,6 @@ class Player
             this.attackedDelta = 0;
         }
 
-
-        //어택드 체크
         if(this.attackedCheck == 1)
         {
             
@@ -296,7 +294,6 @@ class Player
             
             
         }
-        //페링 타이밍 재주는 거.
         if(this.guardLeftDeltaTime >0.3 && this.guardLeftDeltaTime < 0.5)
         {
             fill('red');
@@ -330,7 +327,6 @@ class Player
                     this.animDefaultDelta = 0;
                     this.defaultCheck = 0;
                 }
-                //갑자기 이미지에서 오류뜨면 여기로오기.
                 this.RightDeltaTime = 0;
                 this.LeftDeltaTime = 0;
                 this.LeftAttackDeltaTime = 0;
@@ -765,7 +761,6 @@ class Player
         }else if(this.animState == RIGHTSKILL)
         {
             this.skillDeltaTime += deltaTime/1000;
-            console.log("여기는 들어와 지는가?");
             if(this.skillDeltaTime > 0.7)
             {
                 image(this.rightAttackImage[11],this.pos.x-10,this.pos.y,130,130);
@@ -817,7 +812,6 @@ class Player
         }else if(this.animState == LEFTSKILL)
         {
             this.skillDeltaTime += deltaTime/1000;
-            console.log("여기는 들어와 지는가?");
             if(this.skillDeltaTime > 0.7)
             {
                 image(this.leftAttackImage[11],this.pos.x-10,this.pos.y,130,130);
@@ -905,7 +899,6 @@ class Player
         
 
         
-        // 가만히있는상태.
         if(!keyIsPressed && this.attackCheck == 0 && this.checkRoll == 0 && this.isSkill == 0)
         {
             
@@ -950,7 +943,6 @@ class Player
             
             // this.attackLeft.set(this.pos.x+80,this.pos.y+40);
         }
-        //왼쪽으로가기.
         if(keyIsDown(37) && this.attackCheck == 0 && this.checkRoll == 0 && this.isSkill == 0)
         {
             this.animDefaultDelta = 0;
@@ -976,7 +968,6 @@ class Player
             
 
         }
-        //왼쪽 공격
         if(keyIsDown(65) && this.attackCheck == 0 && (keyIsDown(37)  || this.checkA == 1) && this.checkRoll == 0 && this.isSkill == 0)
         {
             
@@ -988,7 +979,6 @@ class Player
             this.startPlay = 1;
         }
         
-        //오른쪽 공격
         if(keyIsDown(65) && this.attackCheck == 0 && (keyIsDown(39)  || this.checkA == 0) && this.checkRoll == 0 && this.isSkill == 0)
         {
             
@@ -1006,7 +996,6 @@ class Player
             
             this.isJump = true;
             this.sfx[3].play();
-            // this.attackLeft.set(this.pos.x+80,this.pos.y+40);
             this.checkA = 0;
             this.startPlay = 1;
         }
@@ -1029,7 +1018,6 @@ class Player
 
         if(keyIsDown(68) && (keyIsDown(37) || this.checkA == 1)&& this.attackCheck == 0 && this.shieldCount >-1 && this.checkRoll == 0 && this.isSkill == 0)
         {
-            console.log("a2")
             this.checkA = 1;
             this.isGuard = 1;
             this.animState = LEFTGUARD;
@@ -1039,10 +1027,9 @@ class Player
             this.isGuard = 0;
         }
 
-        // 방어하는것.
         if(keyIsDown(68) && (keyIsDown(39) || this.checkA == 0)&& this.attackCheck == 0 && this.shieldCount > -1 && this.checkRoll == 0 && this.isSkill == 0)
         {
-            console.log("a3");
+            
             this.checkA = 0;
             this.isGuard = 1;
             this.animState = RIGHTGUARD;
@@ -1071,11 +1058,10 @@ class Player
 
         }
 
-        //구르기
 
         if(keyIsDown(83) && (keyIsDown(39) || this.checkA == 0) && this.checkRoll == 0 && !this.isJump && this.attackCheck == 0 && this.rollCount > 0 && this.isSkill == 0)
         {
-            console.log("여기는23?");
+           
             this.animState = RIGHTROLL;
             this.checkRoll = 1;
             
@@ -1086,7 +1072,6 @@ class Player
 
         if(keyIsDown(83) && (keyIsDown(37) || this.checkA == 1) && this.checkRoll == 0 && !this.isJump && this.attackCheck == 0 && this.rollCount > 0 && this.isSkill == 0)
         {
-            console.log("여기는23?");
             this.animState = LEFTROLL;
             this.checkRoll = 1;
             this.startPlay = 1;
@@ -1136,7 +1121,6 @@ class Player
         if(this.isGuard == 0 && this.isParrying == 1)
         {
             this.isParrying = 0;
-            console.log("ㅇ니랑너리ㅏㅇ너링ㄴ");
         }
 
 
@@ -1163,24 +1147,6 @@ class Player
         
     }
     
-    // checkCamera()
-    // {
-        
-    //     if(this.pos.x < this.checkCameraX)
-    //     {
-    //         this.cameraL = false;
-    //         this.cameraR = false;
-    //     }
-    //     if(this.pos.x >= this.checkCameraX)
-    //     {
-            
-    //         this.cameraR = true;
-    //     }else if((this.pos.x <= this.checkCameraX_L && keyIsDown(37)) || (this.pos.x <= this.checkCameraX_L && keyIsDown(68)) || (this.pos.x <= this.checkCameraX_L && this.attackedCheck == 1))
-    //     {
-    //         this.cameraL = true;
-    //     }
-    // }
-
 
     
     checkAttack(monster)
@@ -1210,7 +1176,6 @@ class Player
                         monster[a].life -= 1;
                         sfx[1].play();
                         
-                        //오른쪽 네모
                         if(this.checkA == 0 )
                         {
                             
@@ -1225,7 +1190,6 @@ class Player
                             monster[a].pos.addTo(new Vec2(15,0));
                             
                         }else{
-                            console.log("1번");
                             if(monster[a].type != 3 && monster[a].type != 5)
                             {
                                 
@@ -1257,7 +1221,6 @@ class Player
             let is = false;
             for(var a = 0; a<monster.length;a++)
             {
-                console.log("여기 들어왔기를 제발!")
                 if(this.checkRange(this.skillMovePos.x,this.skillMovePos.x+300,monster[a].upLeft.x,monster[a].upRight.x) && this.checkRange(this.skillMovePos.y,this.skillMovePos.y+50,monster[a].upLeft.y,monster[a].downRight.y))
                     {
 
@@ -1269,14 +1232,12 @@ class Player
                         sfx[1].play();
                         
                         
-                        //오른쪽 네모
                         if(this.checkA == 0 )
                         {
-                            console.log("add");
                             
                             if(monster[a].type != 3 && monster[a].type != 5)
                             {
-                                console.log("여기가 들어왔는가?");
+                                
                                 monster[a].animState = 7;
                                 monster[a].isAttacked = 1;
                             }
@@ -1287,7 +1248,6 @@ class Player
                             
                             if(monster[a].type != 3 && monster[a].type != 5)
                             {
-                                console.log("여기가 들어왔는가?");
                                 monster[a].animState = 8;
                                 monster[a].isAttacked = 1;
                             }

@@ -35,11 +35,9 @@ class BigSkel
         this.animState = 0;
         this.animDefaultDelta = 0;
 
-        //default 상태를 체크
         this.defaultCheck = 0;
 
 
-        //행동 체크.
         this.moveDelta = 0;
         this.moveState = 0;
 
@@ -47,14 +45,13 @@ class BigSkel
         this.left = _left;
         this.up = _up;
         this.down = _down;
-        //오른쪽 밑 왼쪽 밑.
         this.downRight = new Vec2(this.pos.x+_right,this.pos.y+this.up);
         this.downLeft = new Vec2(this.pos.x+_left,this.pos.y+this.up);
-        //오른위 왼쪽 위
+ 
         this.upRight = new Vec2(this.pos.x+_right,this.pos.y+this.down);
         this.upLeft = new Vec2(this.pos.x+_left,this.pos.y+this.down);
 
-        //레이 선.
+
         this.rayDown = _rayDown;
         this.ray = new Vec2((this.pos.x+this.right+20,this.pos.y+this.rayDown));
 
@@ -66,46 +63,45 @@ class BigSkel
         this.isPlayer = 0;
         
 
-        //isAttack 공격 상태 인가?
         this.isAttack = 0;
-        //오른쪽 공격 관련 변수.
+      
         this.rightAttackDelta = 0;
-        //페링이 됬는가?
+    
         this.isParried = 0;
-        //페링이 가능한 시간대.
+       
         this.isCanParry = 0;
-        //스턴체크 한번.
+
         this.stunCheck = 0;
 
-        //공격 판정 부분
+
         this.attackLeft = new Vec2(0,0);
-        //공격부분 방향체크
+
         this.checkA = 0;
 
-        //스턴 델타타임
+
         this.stunDeltaTime = 0;
 
-        //왼쪽공격 델타 타임.
+
         this.leftAttackDelta = 0;
 
 
 
-        //behavior 체크
+        
         this.behaviorCheck = 0;
 
-        //왼쪽으로 걷기.
+    
         this.leftWalkDelta = 0;
 
 
 
-        //오른쪽으로 걷기.
+  
         this.rightWalkDelta = 0;
-        //behavior 체크
+   
         this.isBehavior = 0;
         
 
 
-        //이펙트 델타타임.
+    
         this.effectDelta = 0;
 
 
@@ -114,13 +110,13 @@ class BigSkel
 
 
 
-        //공격 어택타임.
+    
         this.attackPlayerDelta = 0;
-        // 매직 체크.
+
         this.magicCheck = 0;
         this.magicDeltaTime = 0;
 
-        //포스체크
+        
         this.playerPosCheck = 0;
         this.playerPos_x = 0;
         this.playerPos_y = 0;
@@ -131,7 +127,7 @@ class BigSkel
         this.whereMagic = 0;
         this.rightAttackRange = 0;
 
-        //왼쪽으로 가는거
+
     
 
         
@@ -155,7 +151,7 @@ class BigSkel
         {
             
             
-            // animState == 0 은 defualt
+     
             if(this.animState == 0)
             {
                 // this.animDefaultDelta += deltaTime/1000;
@@ -175,7 +171,7 @@ class BigSkel
                 //     }
                 // }
                 image(this.moveImage[0],this.pos.x,this.pos.y-5,400,400);
-            //왼쪽 움직임.
+       
             }else if(this.animState == 1)
             {
                     this.rightWalkDelta += deltaTime/1000;
@@ -197,7 +193,7 @@ class BigSkel
                 {
                     image(this.moveImage[1],this.pos.x,this.pos.y-5,400,400);
                 }
-            //오른쪽 움직임
+           
             }else if(this.animState == 2)
             {
 
@@ -251,7 +247,7 @@ class BigSkel
                 //     image(this.rightAttack[0],this.pos.x,this.pos.y-10,400,400);
                 // }
 
-            //오른쪽 공격.
+        
             }else if(this.animState == 3)
             {
 
@@ -322,8 +318,6 @@ class BigSkel
                 
 
 
-
-            //왼쪽 공격.
             }else if(this.animState == 4)
             {
                 this.leftAttackDelta += deltaTime/1000;
@@ -372,7 +366,6 @@ class BigSkel
 
                 }
                 
-            //오른쪽으로 걷ㄷ기
             }
             // else if(this.animState == 5)
             // {
@@ -459,7 +452,7 @@ class BigSkel
         {
             this.playerPos_x = this.attackLeft.x;
             this.playerPos_y = this.attackLeft.y;
-            console.log("이게 한번만 찍혀하는데 몇번 찍히는가?")
+           
         }
        if(this.magicCheck == 1)
        {
@@ -534,7 +527,7 @@ class BigSkel
                 }
                }
            }else if(this.whereMagic == 2){
-            console.log("여기이길바라요");
+         
             if(this.magicDeltaTime > 0.77)
             {
                 //12
@@ -665,7 +658,6 @@ class BigSkel
                 
                     if(dist(player.pos.x,player.pos.y,this.pos.x,this.pos.y) < 300  && (this.pos.y > player.pos.y-50 &&this.pos.y<player.pos.y+100))
                     {
-                        console.log("여기인가");
                         this.behaviorCheck = 1;
                         this.animState = 4;
                         this.acc.x = 0;
@@ -686,7 +678,7 @@ class BigSkel
                 
                     if(dist(player.pos.x,player.pos.y,this.pos.x,this.pos.y) < 260 && (this.pos.y > player.pos.y-50 &&this.pos.y<player.pos.y+100))
                     {
-                        console.log("여기인가");
+                        
                         this.behaviorCheck = 1;
                         this.animState = 3;
                         this.acc.x = 0;
@@ -872,7 +864,6 @@ class BigSkel
 
                         
                         
-                        //오른쪽 네모
                         if(this.checkA == 0 )
                         {
                             if(player.attackedCheck == 0)
@@ -916,7 +907,6 @@ class BigSkel
 
                         
                         
-                        //오른쪽 네모
                         if(this.checkA == 0 )
                         {
                             if(player.attackedCheck == 0)
@@ -957,7 +947,6 @@ class BigSkel
                 
                 
                 }
-                //매직부분
             }else if(this.isMagic == 1 && player.attackedCheck == 0 && player.checkRoll == 0)
             {
                 
@@ -966,15 +955,13 @@ class BigSkel
                     
                     if(this.whereMagic == 1)
                     {
-                        // rect(this.playerPos_x+90,this.playerPos_y,180,50);
-                        console.log("여기는 일단 맞는가?");
+                       
                         if(this.checkRange(this.playerPos_x+90,this.playerPos_x+90+this.rightAttackRange,player.upLeft.x,player.upRight.x) && this.checkRange(this.attackLeft.y,this.attackLeft.y+50,player.upLeft.y,player.downRight.y))
                         {
     
                             
                             
-                            //오른쪽 네모
-                            console.log("Addd");
+                          
                             if(this.checkA == 0 )
                             {
                                 if(player.attackedCheck == 0)
@@ -986,8 +973,6 @@ class BigSkel
                                 player.attackedCheck = 1;
                                 
                                 
-                                // player.gravityVel.addTo(new Vec2(2,-2));
-                                // player.pos.x += 100;
                                 player.attackedVel.x = 300;
                                 
                                 
@@ -1003,7 +988,7 @@ class BigSkel
                         {
     
                             
-                            console.log("여기인가1?!!?!?!??!");
+                          
                             //오른쪽 네모
                             
                                 
@@ -1034,7 +1019,6 @@ class BigSkel
 
     dead()
     {
-        console.log("실행되고있는가요?")
         push();
         imageMode(CENTER);
         if(this.deadDeltaTime < 0.61)

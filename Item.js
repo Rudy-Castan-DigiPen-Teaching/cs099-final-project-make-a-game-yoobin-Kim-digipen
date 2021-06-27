@@ -1,3 +1,10 @@
+// Name       : Yoobin-Kim
+// Assignment : final_project-make_a_game
+// Course     : CS099
+// Spring 2021
+
+
+
 class Item{
     constructor(_image,_x,_y,type)
     {
@@ -30,7 +37,7 @@ class Item{
         {
             if(this.checkRange(player.upLeft.x,player.upRight.x,this.x,this.x+64) && this.checkRange(player.upLeft.y,player.downRight.y,this.y,this.y+64))
             {
-                console.log("add")
+               
                 door.isOpen = 1;
                 
                 this.isRemove = 1;
@@ -39,7 +46,7 @@ class Item{
         }else{
             if(this.checkRange(player.upLeft.x,player.upRight.x,this.x,this.x+64) && this.checkRange(player.upLeft.y,player.downRight.y,this.y,this.y+64))
             {
-                console.log("add")
+               
                 
                 this.isRemove = 1;
             }
